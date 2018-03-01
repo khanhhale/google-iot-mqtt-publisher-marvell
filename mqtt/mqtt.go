@@ -81,7 +81,7 @@ func PublishMessage(projectId, registryId, deviceId, topic, message string) {
 	}
 
 	// Publish message to topic at QOS 1 and wait for the receipt from the server after sending each message.
-	token := c.Publish("/devices/"+deviceId+"/"+topic, 0, false, message)
+	token := c.Publish("/devices/"+deviceId+"/"+"events", 0, false, message)
 	token.Wait()
 
 	// Disconnect client from broker.
